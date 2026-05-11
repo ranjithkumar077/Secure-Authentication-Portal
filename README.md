@@ -209,6 +209,9 @@ Secure logout functionality with session termination.
 
 Download the project and open it in VS Code.
 
+```bash
+git clone https://github.com/ranjithkumar077/Secure-Authentication-Portal.git
+```
 ---
 
 ## Step 2 — Create Virtual Environment
