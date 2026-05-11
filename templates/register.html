@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Account{% endblock %}
+
+{% block content %}
+<div class="container auth-wrapper py-5">
+    <div class="row w-100 justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="glass-card p-4 p-md-5">
+                <div class="text-center mb-4">
+                    <h2 class="fw-bold text-white mb-2">Create an Account</h2>
+                    <p class="text-secondary">Join us to get full access to the portal</p>
+                </div>
+                
+                <form method="POST" action="{{ url_for('auth.register') }}" id="registerForm" class="needs-validation" novalidate>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control form-control-lg" id="username" name="username" placeholder="johndoe" required minlength="3">
+                        <div class="invalid-feedback">
+                            Username must be at least 3 characters.
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control form-control-lg" id="email" name="email" placeholder="name@example.com" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid email address.
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="••••••••" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                        <div class="form-text text-secondary small">Must be at least 8 characters, include 1 uppercase, 1 lowercase, and 1 number.</div>
+                        <div class="invalid-feedback">
+                            Password does not meet the requirements.
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="confirm_password" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control form-control-lg" id="confirm_password" name="confirm_password" placeholder="••••••••" required>
+                        <div class="invalid-feedback">
+                            Please confirm your password.
+                        </div>
+                        <div id="passwordMismatch" class="text-danger small mt-1 d-none">Passwords do not match.</div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-lg w-100 mb-4">Create Account</button>
+                    
+                    <p class="text-center text-secondary mb-0">
+                        Already have an account? <a href="{{ url_for('auth.login') }}" class="text-accent text-decoration-none fw-bold" style="color: var(--accent-color);">Sign In</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
